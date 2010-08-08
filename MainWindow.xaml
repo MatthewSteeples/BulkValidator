@@ -1,0 +1,36 @@
+﻿<Window x:Class="Validator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="700">
+    <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label>Sitemap</Label>
+            <TextBox Margin="5" Width="250" Name="txtSitemap"></TextBox>
+            <Button Margin="5" Width="30" Click="Button_Click">Add</Button>
+            <Button Margin="5" Click="Button_Click_1">Run Checks</Button>
+            <ComboBox Margin="5" Name="cmbServer">
+                <ComboBoxItem Selector.IsSelected="True" Tag="http://lwvubuntu/w3c-markup-validator/">Local</ComboBoxItem>
+                <ComboBoxItem Tag="http://validator.w3.org/">Internet</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <ListView Name="lstPages">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Url" DisplayMemberBinding="{Binding Url}" Width="350" />
+                    <GridViewColumn Header="Last Checked" DisplayMemberBinding="{Binding LastChecked}" Width="150" />
+                    <GridViewColumn Header="Result" DisplayMemberBinding="{Binding Result}" Width="150" />
+                    <GridViewColumn Header="Commands">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Margin="2" Tag="{Binding Url}" Click="Button_Click_2">Delete</Button>
+                                    <!--<Button Margin="2" Tag="{Binding Url}">Check</Button>-->
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
