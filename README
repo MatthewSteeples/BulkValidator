@@ -1,0 +1,14 @@
+W3C Bulk Validator
+==================
+
+A utility for validating an entire website through either the hosted W3C validator or one locally
+
+Installing
+----------
+
+An installer for this application can be found [here](http://matthew-steeples.appspot.com/ClickOnce/Validator/setup.exe).
+
+Requirements
+------------
+
+This application requires .NET 4 to be installed
